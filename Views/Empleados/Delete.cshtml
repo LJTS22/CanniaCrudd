@@ -1,0 +1,25 @@
+﻿@model CanniaCrud.Models.Empleado
+
+<h3>¿Está seguro que desea eliminar este empleado?</h3>
+
+<div>
+    <h4>Empleado</h4>
+    <hr />
+
+    <dl class="row">
+        <dt class="col-sm-2">Nombre</dt>
+        <dd class="col-sm-10">@Model.Nombre</dd>
+
+        <dt class="col-sm-2">Cargo</dt>
+        <dd class="col-sm-10">@Model.Cargo</dd>
+
+        <dt class="col-sm-2">Salario</dt>
+        <dd class="col-sm-10">@Model.Salario</dd>
+    </dl>
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
