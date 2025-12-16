@@ -5,20 +5,17 @@ namespace CanniaCrud.Models
 {
     public class Empleado
     {
-        [Key]
         public int Id { get; set; }
 
-        [Required]
-        [Column(TypeName = "varchar(100)")]
-        public string Nombre { get; set; }
+        [Required(ErrorMessage = "El nombre es obligatorio")]
+        public required string Nombre { get; set; }
 
-        [Required]
-        [Column(TypeName = "varchar(100)")]
-        public string CArgo { get; set; }
+        [Required(ErrorMessage = "El cargo es obligatorio")]
+        public required string Cargo { get; set; }
 
-        [Required]
-        [Column(TypeName = "decimal(18,2)")]
+        [DisplayFormat(DataFormatString = "{0:C0}", ApplyFormatInEditMode = false)]
         public decimal Salario { get; set; }
     }
 }
-//comentario
+
+

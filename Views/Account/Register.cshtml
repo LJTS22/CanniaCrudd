@@ -1,0 +1,43 @@
+﻿@model CanniaCrud.Models.RegisterViewModel
+@{
+    ViewData["Title"] = "Registro de Usuario";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="registro-container" style="max-width:400px; margin:auto; padding:20px; border:1px solid #ccc; border-radius:10px;">
+    <form asp-action="Register" method="post">
+        <!-- Correo -->
+        <div class="form-group" style="margin-bottom:15px;">
+            <label asp-for="Email"></label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <!-- Contraseña -->
+        <div class="form-group" style="margin-bottom:15px;">
+            <label asp-for="Password"></label>
+            <input asp-for="Password" type="password" class="form-control" autocomplete="new-password" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+
+        <!-- Confirmar Contraseña -->
+        <div class="form-group" style="margin-bottom:15px;">
+            <label asp-for="ConfirmPassword"></label>
+            <input asp-for="ConfirmPassword" type="password" class="form-control" autocomplete="new-password" />
+            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+        </div>
+
+        <!-- Botón Registrar -->
+        <button type="submit" class="btn btn-primary" style="width:100%;">Registrarse</button>
+    </form>
+
+    <!-- Enlace a Login -->
+    <div style="margin-top:10px; text-align:center;">
+        <p>¿Ya tienes una cuenta? <a asp-controller="Account" asp-action="Login">Inicia sesión aquí</a></p>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
